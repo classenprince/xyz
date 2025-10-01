@@ -1,0 +1,995 @@
+.herb-wiki {
+  background: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Header */
+.herb-wiki-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  background: var(--card-background);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: var(--primary-hover);
+  transform: translateX(-2px);
+}
+
+.header-left h2 {
+  margin: 0 0 8px 0;
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header-left p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+
+/* Content */
+.herb-wiki-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Search Controls */
+.search-controls {
+  padding: 24px;
+  background: linear-gradient(135deg, var(--card-background), var(--background-secondary));
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.search-bar {
+  position: relative;
+  flex: 1;
+  min-width: 320px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px 14px 48px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--input-background);
+  color: var(--text-color);
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.toggle-filters-btn, .clear-filters-btn {
+  padding: 12px 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--button-background);
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.toggle-filters-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.clear-filters-btn {
+  background: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+
+.clear-filters-btn:hover {
+  background: var(--danger-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Main Content */
+.herb-wiki-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+  width: 320px;
+  background: var(--card-background);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.filters-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-secondary);
+}
+
+.filters-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.filters-content {
+  padding: 20px;
+}
+
+/* Dropdown Filters */
+.dropdown-filter {
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+/* Removed old filter-dropdown styles - now using consistent multi-select style for all */
+
+/* Multi-select dropdown */
+.multi-select-dropdown {
+  width: 100%;
+}
+
+.selected-values {
+  min-height: 44px;
+  padding: 8px 40px 8px 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--input-background);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.selected-values::after {
+  content: '▼';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.multi-select-dropdown:hover .selected-values::after,
+.multi-select-dropdown:focus-within .selected-values::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.selected-values:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.selected-values:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.placeholder {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.selected-tag {
+  background: var(--primary-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.remove-tag {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.remove-tag:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--card-background);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  /* Ensure solid background */
+  background-clip: padding-box;
+}
+
+.multi-select-dropdown:hover .dropdown-options,
+.multi-select-dropdown:focus-within .dropdown-options,
+.dropdown-container:hover .dropdown-options,
+.dropdown-container:focus-within .dropdown-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  background: var(--card-background);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.dropdown-option:hover {
+  background: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.dropdown-option input[type="checkbox"],
+.dropdown-option input[type="radio"] {
+  margin: 0;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-color);
+}
+
+.option-text {
+  flex: 1;
+  color: inherit;
+}
+
+/* Herbs Grid */
+.herbs-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.herbs-grid.full-width {
+  max-width: none;
+}
+
+.results-header {
+  margin-bottom: 20px;
+}
+
+.results-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.prototype-match-indicator {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
+  }
+}
+
+.herbs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Herb Cards */
+.herb-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.herb-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.herb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color);
+}
+
+.herb-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Special styling for prototype match */
+.herb-card.prototype-match {
+  border: 2px solid #10b981;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+  position: relative;
+}
+
+.herb-card.prototype-match::after {
+  content: '🎯 Perfect Match';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.herb-card.prototype-match:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(16, 185, 129, 0.3);
+  border-color: #059669;
+}
+
+.herb-card-header h4 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.2;
+}
+
+.sanskrit-name {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  color: var(--accent-color);
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.scientific-name {
+  margin: 0 0 18px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.herb-properties {
+  margin-bottom: 16px;
+  background: var(--background-secondary);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.property-row {
+  display: flex;
+  margin-bottom: 6px;
+  font-size: 13px;
+  align-items: center;
+}
+
+.property-row:last-child {
+  margin-bottom: 0;
+}
+
+.property-label {
+  min-width: 70px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.property-value {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.herb-guna {
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.guna-tag {
+  padding: 4px 8px;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+  color: var(--primary-color);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid var(--primary-color);
+  transition: all 0.2s ease;
+}
+
+.guna-tag:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.herb-description {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-color);
+  margin: 0 0 12px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.herb-card-footer {
+  text-align: right;
+}
+
+.view-details {
+  font-size: 12px;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.no-results h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.no-results p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Herb Modal */
+.herb-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.herb-modal {
+  background: var(--card-background);
+  border: 2px solid var(--primary-color);
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  /* Ensure completely solid background */
+  background-clip: padding-box;
+  opacity: 1;
+}
+
+.herb-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+  border-bottom: 2px solid var(--border-color);
+  background: var(--card-background);
+  /* Ensure solid background */
+  background-clip: padding-box;
+  opacity: 1;
+}
+
+.herb-modal-header h2 {
+  margin: 0 0 4px 0;
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.sanskrit-name-modal {
+  margin: 0 0 2px 0;
+  font-size: 16px;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.scientific-name-modal {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.modal-close-btn {
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--danger-hover);
+  transform: scale(1.1);
+}
+
+.herb-modal-content {
+  overflow-y: auto;
+  padding: 24px;
+  background: var(--card-background);
+  /* Ensure solid background */
+  background-clip: padding-box;
+  opacity: 1;
+}
+
+.modal-section {
+  margin-bottom: 24px;
+  background: var(--card-background);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.modal-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: var(--primary-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-section p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--card-background);
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  background: var(--card-background);
+}
+
+.property-item {
+  padding: 12px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  /* Ensure solid background */
+  background-clip: padding-box;
+  opacity: 1;
+}
+
+.property-item strong {
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .herbs-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .herb-wiki-main {
+    flex-direction: column;
+  }
+  
+  .filters-sidebar {
+    width: 100%;
+    max-height: 300px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .herbs-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  
+  .search-controls {
+    padding: 20px;
+    gap: 16px;
+  }
+  
+  .search-bar {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .herb-wiki-header {
+    padding: 16px;
+  }
+  
+  .header-left h2 {
+    font-size: 20px;
+  }
+  
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .search-bar {
+    min-width: auto;
+  }
+  
+  .search-input {
+    padding: 12px 16px 12px 44px;
+    font-size: 14px;
+  }
+  
+  .filter-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .toggle-filters-btn, .clear-filters-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .herbs-container {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .herb-modal {
+    margin: 10px;
+    max-height: 95vh;
+  }
+  
+  .herb-modal-header {
+    padding: 16px;
+  }
+  
+  .herb-modal-content {
+    padding: 16px;
+  }
+  
+  .properties-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filters-sidebar {
+    max-height: 250px;
+  }
+  
+  .dropdown-options {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .herb-wiki-header {
+    padding: 12px;
+  }
+  
+  .header-left h2 {
+    font-size: 18px;
+  }
+  
+  .back-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .search-controls {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .search-input {
+    padding: 10px 14px 10px 40px;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    left: 14px;
+    font-size: 16px;
+  }
+  
+  .filters-sidebar {
+    max-height: 200px;
+  }
+  
+  .filters-content {
+    padding: 12px;
+  }
+  
+  .dropdown-filter {
+    margin-bottom: 16px;
+  }
+  
+  .filter-label {
+    font-size: 13px;
+  }
+  
+  .selected-values {
+    min-height: 36px;
+    padding: 6px 10px;
+  }
+  
+  .selected-tag {
+    padding: 3px 6px;
+    font-size: 11px;
+  }
+  
+  .dropdown-options {
+    max-height: 120px;
+  }
+  
+  .dropdown-option {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .herb-card {
+    padding: 16px;
+  }
+  
+  .herb-card-header h4 {
+    font-size: 18px;
+  }
+  
+  .sanskrit-name {
+    font-size: 14px;
+  }
+  
+  .scientific-name {
+    font-size: 12px;
+  }
+  
+  .property-row {
+    font-size: 12px;
+  }
+  
+  .guna-tag {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+  
+  .herb-description {
+    font-size: 12px;
+  }
+  
+  .view-details {
+    font-size: 11px;
+  }
+}
+
+/* Dark theme adjustments */
+.dark .herb-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark .herb-modal {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+  background: var(--card-background);
+  border-color: var(--primary-color);
+}
+
+.dark .herb-modal-header {
+  background: var(--card-background);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .herb-modal-content {
+  background: var(--card-background);
+}
+
+.dark .modal-section {
+  background: var(--card-background);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .property-item {
+  background: var(--background-secondary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .dropdown-options {
+  background: var(--card-background);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.dark .dropdown-option {
+  background: var(--card-background);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .dropdown-option:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Custom scrollbar */
+.filters-sidebar::-webkit-scrollbar,
+.herbs-grid::-webkit-scrollbar,
+.herb-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filters-sidebar::-webkit-scrollbar-track,
+.herbs-grid::-webkit-scrollbar-track,
+.herb-modal-content::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+.filters-sidebar::-webkit-scrollbar-thumb,
+.herbs-grid::-webkit-scrollbar-thumb,
+.herb-modal-content::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.filters-sidebar::-webkit-scrollbar-thumb:hover,
+.herbs-grid::-webkit-scrollbar-thumb:hover,
+.herb-modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}

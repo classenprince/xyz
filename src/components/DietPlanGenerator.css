@@ -1,0 +1,1224 @@
+/* ===============================================
+   PROFESSIONAL DIET PLAN GENERATOR STYLES
+   Modern, Clean, Medical-grade Interface
+   =============================================== */
+
+.diet-plan-generator {
+  /* Professional Design System */
+  --primary-bg: #ffffff;
+  --secondary-bg: #f8fafc;
+  --accent-bg: #f0f9ff;
+  --card-bg: #ffffff;
+  --border-light: #e2e8f0;
+  --border-accent: #0ea5e9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent-primary: #0ea5e9;
+  --accent-secondary: #06b6d4;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Container Styling */
+  background: var(--primary-bg) !important;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Override any parent dark backgrounds */
+.message-content .diet-plan-generator,
+.message .diet-plan-generator,
+.message.bot .diet-plan-generator {
+  background: var(--primary-bg) !important;
+}
+
+/* ===============================================
+   GENERATION SECTION
+   =============================================== */
+
+.generate-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.generate-section h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.generate-section p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.patient-summary {
+  background: var(--accent-bg);
+  border: 1px solid #bae6fd;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.patient-summary h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-primary);
+  padding-bottom: 0.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.summary-grid ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.patient-summary li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e0f2fe;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.patient-summary li:last-child {
+  border-bottom: none;
+}
+
+.patient-summary li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.generate-btn {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.generate-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===============================================
+   DIET PLAN DISPLAY
+   =============================================== */
+
+.diet-plan-display {
+  text-align: left;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--secondary-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+}
+
+.diet-plan-display h3 {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-selector {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.language-selector:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-1px);
+}
+
+.language-selector option {
+  background: white;
+  color: var(--text-primary);
+}
+
+.regenerate-btn {
+  background: linear-gradient(135deg, var(--warning) 0%, #f59e0b 100%);
+  color: white;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.regenerate-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.regenerate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===============================================
+   PLAN SECTIONS
+   =============================================== */
+
+.plan-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plan-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.plan-section h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--success);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.patient-info p {
+  margin: 0.75rem 0;
+  color: var(--text-secondary);
+}
+
+/* ===============================================
+   PATIENT PROFILE GRID
+   =============================================== */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-column {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.profile-column:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+}
+
+.profile-column p {
+  margin: 0 0 1rem 0;
+  padding: 0.875rem 1rem;
+  background: var(--secondary-bg);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent-primary);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.profile-column p:hover {
+  background: var(--accent-bg);
+  border-left-color: var(--accent-secondary);
+}
+
+.profile-column p:last-child {
+  margin-bottom: 0;
+}
+
+.profile-column p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.ai-variations {
+  background: var(--accent-bg);
+  border: 1px solid #bae6fd;
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+  font-style: italic;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.ai-variations::before {
+  content: 'AI';
+  position: absolute;
+  top: -8px;
+  left: 1rem;
+  background: var(--accent-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ai-variations strong {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* ===============================================
+   MEAL PLAN GRID
+   =============================================== */
+
+.meal-plan {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.meal {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.meal:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+}
+
+.meal h5 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-primary);
+}
+
+.meal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.meal li {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.meal li::before {
+  content: '•';
+  color: var(--accent-primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Enhanced Meal Display */
+.enhanced-meal {
+  border-left: 4px solid var(--accent-primary);
+}
+
+.meal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.meal-item {
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.meal-item.main-dish {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  background: #f0f9ff;
+  padding: 0.75rem 1rem;
+  border: 1px solid #bae6fd;
+}
+
+.meal-item.nutrition {
+  font-weight: 500;
+  color: var(--success);
+  font-size: 0.8125rem;
+  background: #f0fdf4;
+  padding: 0.625rem 1rem;
+  border: 1px solid #bbf7d0;
+}
+
+.meal-item.reason {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  background: var(--secondary-bg);
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border-light);
+}
+
+.meal-reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.meal-reason-grid > div {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.meal-reason-grid > div span {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===============================================
+   DAILY TOTALS SECTION
+   =============================================== */
+
+.daily-totals {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+}
+
+.totals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.total-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.total-item:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.total-item.calories {
+  border-left: 4px solid var(--danger);
+}
+
+.total-item.carbs {
+  border-left: 4px solid var(--warning);
+}
+
+.total-item.protein {
+  border-left: 4px solid var(--accent-primary);
+}
+
+.total-item.fat {
+  border-left: 4px solid #7c3aed;
+}
+
+.total-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.total-value {
+  font-weight: 700;
+  color: var(--success);
+  font-size: 1rem;
+}
+
+/* Micronutrients Section */
+.micronutrients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.micro-item {
+  background: var(--accent-bg);
+  border: 1px solid #bae6fd;
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.micro-item:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+}
+
+.micro-item.vitamins {
+  border-left: 4px solid #f59e0b;
+}
+
+.micro-item.minerals {
+  border-left: 4px solid #7c3aed;
+}
+
+.micro-item.special {
+  border-left: 4px solid var(--accent-primary);
+}
+
+.micro-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.micro-value {
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.balance-note {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--success);
+}
+
+.balance-note p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ===============================================
+   GUIDELINES & LIFESTYLE
+   =============================================== */
+
+.guidelines-list, .lifestyle-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guidelines-list li, .lifestyle-list li {
+  margin: 0.75rem 0;
+  color: var(--text-secondary);
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.guidelines-list li::before {
+  content: '✓';
+  color: var(--success);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.lifestyle-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+.herbs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.herb-tag {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid #bbf7d0;
+  transition: all 0.2s ease;
+}
+
+.herb-tag:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Action Buttons Container */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto 0;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, var(--success) 0%, #16a34a 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  min-width: 180px;
+}
+
+.download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.recipe-btn {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  min-width: 180px;
+}
+
+.recipe-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
+}
+
+.recipe-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===============================================
+   AYURVEDIC EXPLANATION
+   =============================================== */
+
+.ayurvedic-explanation {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 4px solid var(--warning);
+}
+
+.explanation-content p {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.explanation-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+
+@media (max-width: 768px) {
+  .diet-plan-generator {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .plan-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .header-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  .language-selector,
+  .regenerate-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .diet-plan-display h3 {
+    font-size: 1.5rem;
+  }
+  
+  .plan-section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .plan-section h4 {
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .profile-column {
+    padding: 1.25rem;
+  }
+  
+  .profile-column p {
+    padding: 0.75rem;
+    font-size: 0.8125rem;
+  }
+  
+  .meal-plan {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .meal {
+    padding: 1.25rem;
+  }
+  
+  .meal h5 {
+    font-size: 1rem;
+  }
+  
+  .totals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .total-item {
+    padding: 1rem;
+  }
+  
+  .meal-reason-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .generate-section {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .generate-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .patient-summary {
+    padding: 1.25rem;
+  }
+  
+  .ai-variations {
+    padding: 0.875rem 1rem;
+    margin-top: 1rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .download-btn,
+  .recipe-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .diet-plan-generator {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+  }
+  
+  .plan-section {
+    padding: 1rem;
+  }
+  
+  .plan-section h4 {
+    padding: 0.625rem 0.875rem;
+    font-size: 1.125rem;
+  }
+  
+  .meal-plan {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .totals-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .herbs-list {
+    gap: 0.5rem;
+  }
+  
+  .herb-tag {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ===============================================
+   RECIPE GENERATION STYLES
+   =============================================== */
+
+.recipe-btn, .view-recipes-btn {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.recipe-btn:hover, .view-recipes-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.recipe-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.view-recipes-btn {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+}
+
+.error-section {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--danger);
+}
+
+.error-section h4 {
+  color: var(--danger);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.error-message {
+  color: var(--danger);
+  font-weight: 500;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* ===============================================
+   RECIPE SECTIONS
+   =============================================== */
+
+.recipe-section {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-left: 4px solid var(--success);
+}
+
+.recipe-section h4 {
+  color: var(--success);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.recipes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.meal-recipes {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+}
+
+.meal-type-header {
+  color: var(--success);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #bbf7d0;
+  text-transform: capitalize;
+}
+
+.recipe-card {
+  background: var(--secondary-bg);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.recipe-title {
+  color: var(--success);
+  font-size: 1.125rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.recipe-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.cooking-time, .servings {
+  background: #f0fdf4;
+  color: var(--success);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border: 1px solid #bbf7d0;
+}
+
+.recipe-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.ingredients-section, .instructions-section {
+  background: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.ayurvedic-benefits-section {
+  grid-column: 1 / -1;
+  background: #fffbeb;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #fde68a;
+  border-left: 4px solid var(--warning);
+}
+
+.ingredients-section h6, .instructions-section h6, .ayurvedic-benefits-section h6 {
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients-list li {
+  padding: 0.375rem 0;
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.ingredients-list li:last-child {
+  border-bottom: none;
+}
+
+.ingredients-list li:before {
+  content: "•";
+  color: var(--success);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.instructions-list {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.instructions-list li {
+  padding: 0.5rem 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.benefits-text {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.recipe-summary {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  border-left: 4px solid var(--success);
+}
+
+.recipe-summary p {
+  margin: 0.25rem 0;
+  color: var(--success);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* ===============================================
+   UTILITY CLASSES
+   =============================================== */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+
+.rounded { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+
+/* ===============================================
+   PRINT STYLES
+   =============================================== */
+
+@media print {
+  .diet-plan-generator {
+    box-shadow: none;
+    border: 1px solid #000;
+    background: white !important;
+    max-width: none;
+    margin: 0;
+    padding: 1rem;
+  }
+  
+  .plan-header {
+    background: white !important;
+  }
+  
+  .regenerate-btn,
+  .language-selector,
+  .download-btn {
+    display: none;
+  }
+  
+  .meal {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .plan-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

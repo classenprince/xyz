@@ -1,0 +1,76 @@
+{
+  "name": "abc",
+  "age": 21,
+  "gender": "Other",
+  "contactInfo": {
+    "phone": "9644470361",
+    "email": "abc@email.com",
+    "address": {
+      "street": "",
+      "city": "",
+      "state": "",
+      "zipCode": "",
+      "country": "India"
+    }
+  },
+  "prakriti": {
+    "vata": 0.1,
+    "pitta": 0.2,
+    "kapha": 0.4
+  },
+  "vikriti": {
+    "vata": 0.3,
+    "pitta": 0.4,
+    "kapha": 0.1
+  },
+  "roga": [
+    {
+      "condition": "skin",
+      "severity": "Moderate",
+      "duration": "",
+      "notes": ""
+    }
+  ],
+  "physicalMeasurements": {
+    "weight": {
+      "value": 66,
+      "unit": "kg"
+    },
+    "height": {
+      "feet": 5,
+      "inches": 8
+    }
+  },
+  "dietaryHabits": {
+    "type": "Vegetarian",
+    "appetite": "Moderate",
+    "foodPreferences": {
+      "temperature": "Warm",
+      "taste": [],
+      "spiceLevel": "Medium"
+    },
+    "mealFrequency": {
+      "mainMeals": 3,
+      "snacks": 1
+    },
+    "targetCalories": 2200,
+    "allergies": [],
+    "dislikes": []
+  },
+  "lifestyle": {
+    "activityLevel": "Moderately Active",
+    "sleepPattern": {
+      "averageHours": 7,
+      "quality": "Good"
+    },
+    "stressLevel": "Moderate",
+    "occupation": "",
+    "smokingStatus": "Never",
+    "alcoholConsumption": "None"
+  },
+  "environment": {
+    "climate": "Tropical",
+    "season": "Summer"
+  },
+  "createdBy": "507f1f77bcf86cd799439011"
+}

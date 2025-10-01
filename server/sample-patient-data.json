@@ -1,0 +1,101 @@
+{
+  "samplePatient": {
+    "name": "Priya Sharma",
+    "age": 29,
+    "gender": "Female",
+    "contactInfo": {
+      "phone": "+91-9876543210",
+      "email": "priya.sharma@email.com",
+      "address": {
+        "street": "123 MG Road",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "zipCode": "560001",
+        "country": "India"
+      }
+    },
+    "prakriti": {
+      "vata": 3,
+      "pitta": 2,
+      "kapha": 1
+    },
+    "vikriti": {
+      "vata": 3.5,
+      "pitta": 2.5,
+      "kapha": 1
+    },
+    "roga": [
+      {
+        "condition": "Abdominal Gas",
+        "severity": "Moderate",
+        "duration": "3 months",
+        "notes": "Occurs mainly after meals"
+      },
+      {
+        "condition": "Heat in Body",
+        "severity": "Mild",
+        "duration": "2 weeks",
+        "notes": "Increased during summer season"
+      }
+    ],
+    "physicalMeasurements": {
+      "weight": {
+        "value": 50,
+        "unit": "kg"
+      },
+      "height": {
+        "feet": 5,
+        "inches": 5
+      }
+    },
+    "dietaryHabits": {
+      "type": "Vegetarian",
+      "appetite": "Moderate",
+      "foodPreferences": {
+        "temperature": "Warm",
+        "taste": ["Sweet", "Bitter", "Astringent"],
+        "spiceLevel": "Medium"
+      },
+      "mealFrequency": {
+        "mainMeals": 3,
+        "snacks": 1
+      },
+      "targetCalories": 2200,
+      "allergies": [],
+      "dislikes": ["Bitter gourd", "Very spicy food"]
+    },
+    "lifestyle": {
+      "activityLevel": "Moderately Active",
+      "sleepPattern": {
+        "averageHours": 7,
+        "quality": "Good"
+      },
+      "stressLevel": "Moderate",
+      "occupation": "Software Engineer",
+      "smokingStatus": "Never",
+      "alcoholConsumption": "None"
+    },
+    "environment": {
+      "climate": "Tropical",
+      "season": "Summer"
+    },
+    "medicalHistory": {
+      "currentMedications": [],
+      "pastIllnesses": [
+        {
+          "condition": "Common Cold",
+          "year": 2023,
+          "treatment": "Ayurvedic herbs and rest"
+        }
+      ],
+      "familyHistory": [
+        {
+          "relation": "Mother",
+          "condition": "Diabetes Type 2"
+        }
+      ],
+      "surgeries": []
+    },
+    "createdBy": "60d5ecb54b24a1234567890a"
+  }
+}

@@ -1,0 +1,63 @@
+.app {
+  display: flex;
+  height: 100vh;
+  background-color: #212121;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #212121;
+  overflow: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0 !important;
+  }
+}
+
+/* Light theme overrides */
+.app.light {
+  background-color: #f7f8fa;
+  color: #1f2937;
+}
+
+.app.light .main-content {
+  background-color: #ffffff;
+}
+
+/* Coal theme overrides */
+.app.coal {
+  background-color: #0b0b0c;
+  color: #e5e7eb;
+}
+
+.app.coal .main-content {
+  background-color: #0b0b0c;
+}
+
+/* Paper theme overrides (warm off-white) */
+.app.paper {
+  background-color: #f6f4ef; /* warm paper */
+  color: #1f2937;
+}
+
+.app.paper .main-content {
+  background-color: #fbfaf7; /* slightly lighter canvas */
+}
+
+/* Gray theme overrides (neutral gray-white) */
+.app.gray {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.app.gray .main-content {
+  background-color: #ffffff;
+}

@@ -1,0 +1,612 @@
+/* ===============================================
+   PROFESSIONAL PATIENT ANALYSIS STYLES
+   Medical-grade Constitutional Analysis Interface
+   =============================================== */
+
+.patient-analysis {
+  /* Design tokens - Light professional theme */
+  --bg-surface: #ffffff;
+  --bg-muted: #f8fafc;
+  --bg-accent: #f0f9ff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --accent-primary: #0ea5e9;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --vata-color: #8b5cf6;
+  --pitta-color: #ef4444;
+  --kapha-color: #059669;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  background: var(--bg-surface) !important;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  line-height: 1.6;
+}
+
+/* Override parent backgrounds */
+.message-content .patient-analysis,
+.message .patient-analysis,
+.message.bot .patient-analysis {
+  background: var(--bg-surface) !important;
+}
+
+/* ===============================================
+   ANALYSIS HEADER
+   =============================================== */
+
+.analysis-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-accent);
+  border-radius: var(--radius-lg);
+  border: 1px solid #bae6fd;
+}
+
+.analysis-header h3 {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.analysis-header h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin: 0;
+}
+
+/* ===============================================
+   ANALYSIS SECTIONS
+   =============================================== */
+
+.analysis-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analysis-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.analysis-section h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--success);
+}
+
+/* ===============================================
+   DETAIL GRID
+   =============================================== */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--bg-muted);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.detail-value {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+/* ===============================================
+   CONSTITUTION GRID
+   =============================================== */
+
+.constitution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dosha-card {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 2px solid;
+  transition: all 0.2s ease;
+}
+
+.dosha-card.vata {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  border-color: var(--vata-color);
+  color: var(--vata-color);
+}
+
+.dosha-card.pitta {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-color: var(--pitta-color);
+  color: var(--pitta-color);
+}
+
+.dosha-card.pitta.dominant {
+  border-width: 3px;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.dosha-card.kapha {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: var(--kapha-color);
+  color: var(--kapha-color);
+}
+
+.dosha-card h6 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dosha-card p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.constitution-summary {
+  background: var(--bg-accent);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent-primary);
+}
+
+.constitution-summary p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ===============================================
+   IMBALANCE GRID
+   =============================================== */
+
+.imbalance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.imbalance-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  border: 1px solid var(--border-light);
+}
+
+.imbalance-item.vata-high {
+  background: linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%);
+  border-color: var(--vata-color);
+}
+
+.imbalance-item.pitta-high {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-color: var(--pitta-color);
+  border-width: 2px;
+}
+
+.imbalance-item.kapha-normal {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: var(--kapha-color);
+}
+
+.imbalance-item span:first-child {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.imbalance-item .status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vata-high .status { color: var(--vata-color); }
+.pitta-high .status { color: var(--pitta-color); }
+.kapha-normal .status { color: var(--kapha-color); }
+
+.imbalance-explanation {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 4px solid var(--warning);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+}
+
+.imbalance-explanation p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ===============================================
+   DOSHA DETAILS
+   =============================================== */
+
+.dosha-detail {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+}
+
+.dosha-detail.pitta-detail {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-left: 4px solid var(--pitta-color);
+}
+
+.dosha-detail.vata-detail {
+  background: linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%);
+  border-left: 4px solid var(--vata-color);
+}
+
+.dosha-detail.kapha-detail {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left: 4px solid var(--kapha-color);
+}
+
+.dosha-detail h6 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.dosha-info p {
+  margin: 0.75rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.dosha-info p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ===============================================
+   PRACTICAL LISTS
+   =============================================== */
+
+.practical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.practical-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-muted);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent-primary);
+}
+
+.bullet {
+  color: var(--accent-primary);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.self-monitoring {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--warning);
+}
+
+.self-monitoring h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.monitoring-example {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: var(--radius-sm);
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.quote-icon {
+  color: var(--warning);
+  font-weight: bold;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+/* ===============================================
+   CONCERNS & STRATEGY
+   =============================================== */
+
+.concerns-list, .strategy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.concern-item, .strategy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.concern-item {
+  background: #fef2f2;
+  border-left: 3px solid var(--danger);
+}
+
+.strategy-item {
+  background: #f0fdf4;
+  border-left: 3px solid var(--success);
+}
+
+.concern-bullet, .strategy-bullet {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+}
+
+.concern-bullet {
+  color: var(--danger);
+}
+
+.strategy-bullet {
+  color: var(--success);
+}
+
+/* ===============================================
+   ANALYSIS SUMMARY
+   =============================================== */
+
+.analysis-summary {
+  background: var(--bg-accent);
+  border: 1px solid #bae6fd;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-left: 4px solid var(--accent-primary);
+}
+
+.analysis-summary h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.summary-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-card p {
+  margin: 1rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.summary-card p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ===============================================
+   ACTION BUTTONS
+   =============================================== */
+
+.analysis-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.download-analysis-btn {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary) 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  min-width: 220px;
+}
+
+.download-analysis-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+}
+
+/* ===============================================
+   ANALYSIS PLACEHOLDER
+   =============================================== */
+
+.analysis-placeholder {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-muted);
+  border: 2px dashed var(--border-light);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+}
+
+.analysis-placeholder p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+
+@media (max-width: 768px) {
+  .patient-analysis {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .analysis-header {
+    padding: 1rem;
+  }
+  
+  .analysis-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .analysis-section {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .analysis-section h5 {
+    font-size: 1.125rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .constitution-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .imbalance-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .dosha-detail {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .practical-item,
+  .concern-item,
+  .strategy-item {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .summary-card {
+    padding: 1.25rem;
+  }
+  
+  .download-analysis-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .patient-analysis {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .analysis-section {
+    padding: 1rem;
+  }
+  
+  .analysis-section h5 {
+    padding: 0.625rem 0.875rem;
+    font-size: 1rem;
+  }
+  
+  .dosha-card {
+    padding: 1rem;
+  }
+  
+  .analysis-actions {
+    margin-top: 1.5rem;
+  }
+}
+
+/* ===============================================
+   UTILITY CLASSES
+   =============================================== */
+
+.text-center { text-align: center; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.p-4 { padding: 1rem; }
